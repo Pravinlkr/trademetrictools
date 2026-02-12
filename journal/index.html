@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free trading journal online with automatic risk-reward, win rate, expectancy and drawdown tracking. No signup required. 100% private. Export to Excel anytime.">
+    <meta name="keywords" content="trading journal, trading journal online, best trading journal, free trading journal, trading journal excel">
+    <title>Best Trading Journal Online (Free & Private) | TradeMetricTools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://www.trademetrictools.com/journal/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/png">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="journal.css">
+
+    <!-- Chart.js Local -->
+    <script src="../assets/vendor/chart.min.js" defer></script>
+
+    <!-- Page JS -->
+    <script src="journal.js" defer></script>
+
+    <!-- chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>TradeMetricTools</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="journal/index.html">Trading Journal</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+
+    <div class="container">
+
+        <h2>Smart Trading Journal</h2>
+        <p>Track your trades and analyze performance.</p>
+
+        <!-- Trade Entry Form -->
+        <form id="tradeForm" class="tradeForm">
+
+            <div class="form-grid">
+                <input type="date" id="date" required>
+        
+                <select id="direction" required>
+                    <option value="">Direction</option>
+                    <option value="long">Long (Buy)</option>
+                    <option value="short">Short (Sell)</option>
+                </select>
+        
+                <input type="text" id="symbol" placeholder="Symbol" required>
+                <input type="number" id="quantity" placeholder="Quantity" required>
+                <input type="number" id="entry" placeholder="Entry Price" required>
+                <input type="number" id="stop" placeholder="Stop Loss" required>
+                <input type="number" id="target" placeholder="Target Price" required>
+                <input type="number" id="exit" placeholder="Exit Price" required>
+                <textarea id="notes" placeholder="Trade Notes (optional)" rows="2" style="padding: 5px;"></textarea>
+            </div>
+        
+            <div style="display:flex; gap:10px; margin-top:10px;">
+                <button type="submit" class="btn-primary">
+                    Add Trade
+                </button>
+            
+                <button type="button" id="clearFormBtn" class="secondary-btn">
+                    Clear Form
+                </button>
+            </div>
+        
+        </form>
+
+        <div class="filterAndStats">
+            <!-- filter  -->
+            <div class="journal-card">
+                <h3>Filters</h3>
+            
+                <div class="form-grid">
+                    <select id="resultFilter">
+                        <option value="all">All Trades</option>
+                        <option value="win">Winning Trades</option>
+                        <option value="loss">Losing Trades</option>
+                    </select>
+            
+                    <input type="date" id="startDate">
+                    <input type="date" id="endDate">
+            
+                    <button id="clearFiltersBtn"
+                        style="background:#6b7280;color:white;padding:10px;border:none;border-radius:6px;">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>Total Trades</h4>
+                    <p id="totalTrades">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Win Rate</h4>
+                    <p id="winRate">0%</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Total P/L</h4>
+                    <p id="totalPL">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Expectancy</h4>
+                    <p id="expectancy">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trades Table -->
+        <div class="tableAndGraph">
+            <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:15px;">
+                <h3>Trade History</h3>
+                <div>
+                    <button id="exportBtn" class="btn-primary" style="margin-right:10px;">Export CSV</button>
+                    <button id="clearAllBtn" class="btn-danger">
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Symbol</th>
+                            <th>Direction</th>
+                            <th>Entry</th>
+                            <th>Stop</th>
+                            <th>Target</th>
+                            <th>Exit</th>
+                            <th>Qty</th>
+                            <th>R:R</th>
+                            <th>P/L</th>
+                            <th>Notes</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                    <tbody id="tradeTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="tableAndGraph">
+            <h3>Equity Curve</h3>
+            <canvas id="equityChart"></canvas>
+        </div>
+
+    </div>
+
+    <section class="container">
+
+        <h1>Best Trading Journal Online – Free, Private & Powerful</h1>
+
+        <p>If you are serious about becoming a profitable trader, using a trading journal is not optional — it is mandatory.</p>
+    
+        <p>
+            The Smart Trading Journal by TradeMetricTools is designed to help traders track performance, measure risk, calculate expectancy,
+             and improve consistency — all inside a fast, privacy-first trading journal online.
+        </p>
+        <p>
+            Unlike traditional tools or complex software, our journal works instantly in your browser. No login required. No cloud storage. No subscriptions.
+        </p>
+
+        <p>
+            If you are searching for the best trading journal that is simple, fast, and completely private — you’re in the right place.
+        </p>
+    
+        <!-- ================= H2 SECTION ================= -->
+    
+        <h2>Why a Trading Journal Is Essential for Traders</h2>
+        <p>
+            Most traders fail not because of bad strategies — but because they do not track their trades properly.
+        </p>
+
+        <p>
+            <b>A professional trading journal helps you:</b>
+        </p>
+    
+        <ul>
+          <li>Track every trade systematically</li>
+          <li>Monitor risk per trade</li>
+          <li>Calculate reward-to-risk ratio</li>
+          <li>Measure win rate</li>
+          <li>Analyze drawdown</li>
+          <li>Improve discipline</li>
+          <li>Remove emotional decision-making</li>
+        </ul>
+        <p>If you don’t measure your performance, you cannot improve it. The difference between random trading and professional trading is journaling.</p>
+    
+        <h2>Trading Journal Excel vs Trading Journal Online</h2>
+    
+        <p>
+            Many traders begin with a trading journal Excel sheet. Excel works — but it has limitations:
+        </p>
+    
+        <div class="comparison">
+          <div>
+            <h3>Trading Journal Excel</h3>
+            <ul>
+              <li>Manual formulas</li>
+              <li>No visual analytics</li>
+              <li>Error-prone editing</li>
+              <li>Limited performance metrics</li>
+            </ul>
+          </div>
+    
+          <div>
+            <h3>Our Free Trading Journal Online</h3>
+            <ul>
+              <li>Automatic calculations</li>
+              <li>Interactive performance charts</li>
+              <li>Built-in expectancy & drawdown</li>
+              <li>Works on desktop & mobile</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>Excel is good for beginners, but once you want serious analytics like expectancy, profit factor,
+            and drawdown tracking — you need a smarter solution. That’s where our <b>free trading journal</b> comes in.
+        </p>
+
+        <h2>Interactive Performance Charts</h2>
+        <p>Numbers alone are not enough.</p>
+        <div>
+            <h3>Our trading journal online uses Chart.js to show:</h3>
+            <ul>
+              <li>Equity growth curve</li>
+              <li>Drawdown curve</li>
+              <li>Win vs Loss distribution</li>
+              <li>Monthly performance summary</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Visual feedback helps you quickly identify:</h3>
+            <ul>
+              <li>Overtrading</li>
+              <li>Emotional trading periods</li>
+              <li>Strategy breakdown</li>
+              <li>Consistency patterns</li>
+            </ul>
+        </div>
+        <p>Seeing your performance visually changes how you approach trading.</p>
+    
+        <h2>How Our Free Trading Journal Works</h2>
+    
+        <h3>1. Add Your Trade</h3>
+        <p>
+          Enter instrument, entry price, stop loss, target, exit price, quantity, strategy name and notes.
+        </p>
+    
+        <h3>2. Automatic Calculations</h3>
+        <p>
+          The journal instantly calculates risk per trade, reward per trade, risk/reward ratio,
+          profit/loss, percentage return, and cumulative equity curve.
+        </p>
+    
+        <h3>3. Advanced Performance Metrics</h3>
+        <p>
+          We calculate win rate, average win, average loss, expectancy, profit factor, and maximum drawdown —
+          making this one of the best trading journal tools available.
+        </p>
+    
+        <h2>100% Private journal – Your Data Stays on Your Device</h2>
+    
+        <p>
+            Most online journals store your trades on their servers. We don’t.
+        </p>
+    
+        <ul>
+          <li>No account required</li>
+          <li>No login required</li>
+          <li>No cloud database</li>
+          <li>No data tracking</li>
+          <li>No hidden storage</li>
+        </ul>
+
+        <p>All your trading data is stored locally in your browser. That means:</p>
+
+        <ul>
+            <li>Your trades are visible only to you.</li>
+            <li>We cannot access your data.</li>
+            <li>Clearing browser storage removes the journal history.</li>
+            <li>You stay in full control.</li>
+        </ul>
+
+        <p>For serious traders, privacy matters. This is why many users consider this the best trading journal for privacy-focused trading.</p>
+    
+        <h2>Export Your Trading Journal Anytime</h2>
+    
+        <p>
+            If you still prefer Excel for long-term storage — no problem.
+        </p>
+
+        <h3>You can export your entire journal into CSV format and open it in:</h3>
+
+        <ul>
+            <li>Microsoft Excel</li>
+            <li>Google Sheets</li>
+            <li>Any analytics software</li>
+        </ul>
+        <p>This combines the power of a trading journal online with the flexibility of a trading journal Excel sheet. Best of both worlds.</p>
+
+        <!-- why this is the best free trading journal -->
+        <h2>Why This Is the Best Free Trading Journal</h2>
+        <p>There are many trading journal apps available today.</p>
+        <p>Most of them:</p>
+
+        <ul>
+            <li>Charge monthly fees</li>
+            <li>Require signups</li>
+            <li>AStore your trading history on remote servers</li>
+            <li>Overcomplicate dashboards</li>
+            <li>Slow down over time</li>
+        </ul>
+
+        <p>Our approach is different.</p>
+        <ul>
+            <li>Completely free trading journal</li>
+            <li>No subscriptions</li>
+            <li>Instant loading (static architecture)</li>
+            <li>Lightweight & fast</li>
+            <li>Clean interface</li>
+            <li>Focused only on performance metrics that matter</li>
+        </ul>
+        <p>This makes it ideal for traders who want clarity instead of clutter.</p>
+
+        <!-- Improve Discipline. Improve Consistency. Improve Results. -->
+        <h2>Improve Discipline. Improve Consistency. Improve Results.</h2>
+        <p>The purpose of a trading journal is not to store trades.</p>
+        <p>It is to:</p>
+        <ul>
+            <li>Identify mistakes</li>
+            <li>Remove emotional bias</li>
+            <li>Track consistency</li>
+            <li>Optimize risk management</li>
+            <li>Improve trading psychology</li>
+        </ul>
+        <p>A trader who journals consistently becomes a data-driven decision maker. And data-driven traders survive market volatility.</p>
+    
+        <h2>Who Should Use This Trading Journal?</h2>
+        <p>This tool is perfect for:</p>
+        <ul>
+          <li>Beginner traders learning risk management</li>
+          <li>Intermediate traders optimizing strategies</li>
+          <li>Intraday traders improving accuracy</li>
+          <li>Options traders tracking drawdown</li>
+          <li>Swing traders monitoring performance cycles</li>
+          <li>Professional traders validating expectancy</li>
+        </ul>
+        <p>If you treat trading like a business, journaling is your accounting system.</p>
+    
+        <h2>Frequently Asked Questions (FAQ)</h2>
+    
+        <div class="faq">
+    
+          <div class="faq-item">
+            <h3>Is this trading journal completely free?</h3>
+            <p>
+              Yes. This is a free trading journal with no subscriptions, no login, and no hidden fees.
+            </p>
+          </div>
+    
+          <div class="faq-item">
+            <h3>Is my trading data stored online?</h3>
+            <p>
+              No. All your trade data is stored locally in your browser. We do not store or access your information.
+            </p>
+          </div>
+    
+          <div class="faq-item">
+            <h3>Can I export my trading journal to Excel?</h3>
+            <p>
+              Yes. You can export your trading history to CSV and use it as a trading journal Excel file.
+            </p>
+          </div>
+    
+          <div class="faq-item">
+            <h3>Is this suitable for intraday and options trading?</h3>
+            <p>
+              Yes. The journal works for intraday, swing, F&O, forex, and crypto trading.
+            </p>
+          </div>
+    
+        </div>
+    
+      </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 TradeMetricTools</p>
+    </div>
+</footer>
+
+<!-- FAQ Schema for Google Rich Results -->
+    
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this trading journal completely free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. This is a free trading journal with no subscriptions or login requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my trading data stored online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All trade data is stored locally in your browser and never sent to any server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export my trading journal to Excel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can export your trades to CSV and open them in Excel or Google Sheets."
+          }
+        }
+      ]
+    }
+</script>
+
+</body>
+</html>
