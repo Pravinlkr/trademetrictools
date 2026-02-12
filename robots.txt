@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block error page from being crawled
+Disallow: /404.html
+
+Sitemap: https://trademetrictools.com/sitemap.xml
