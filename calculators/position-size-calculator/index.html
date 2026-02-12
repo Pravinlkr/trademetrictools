@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position Size Calculator – Free Risk Management Tool | TradeMetricTools</title>
+    <meta name="description" content="Free Position Size Calculator for traders. Calculate how many shares or contracts to buy based on account size, risk percentage and stop loss. Improve risk management.">
+    <meta name="keywords" content="position size calculator, trading position size calculator, risk management calculator, how many shares to buy calculator, position sizing trading">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://trademetrictools.com/calculators/position-size/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://trademetrictools.com/favicon.ico" type="image/png">
+
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>TradeMetricTools</h1>
+        <nav>
+            <a href="https://trademetrictools.com/">Home</a>
+            <a href="https://trademetrictools.com/journal/">Trading Journal</a>
+            <a href="https://trademetrictools.com/calculators/position-size-calculator/">Position Size Calculator</a>
+        </nav>
+    </div>
+</header>
+
+<main class="section">
+    <div class="container">
+        <h2>Position Size Calculator</h2>
+        <p>
+            Use this free Position Size Calculator to determine how many shares or contracts
+            you should buy based on your account size, risk percentage, entry price and stop loss.
+            Proper position sizing is the foundation of professional risk management.
+        </p>
+
+        <div class="calculator-box">
+    
+            <label>Account Size</label>
+            <input type="number" id="accountSize" placeholder="e.g. 100000">
+    
+            <label>Risk Per Trade (%)</label>
+            <input type="number" id="riskPercent" placeholder="e.g. 1">
+    
+            <label>Entry Price</label>
+            <input type="number" id="entryPrice" placeholder="e.g. 100">
+    
+            <label>Stop Loss Price</label>
+            <input type="number" id="stopLoss" placeholder="e.g. 95">
+
+            <label>Reward Multiple (Risk:Reward)</label>
+            <input type="number" id="rewardMultiple" placeholder="e.g. 2 for 1:2">
+    
+            <button onclick="calculatePosition()">Calculate Position Size</button>
+    
+            <div class="result" id="result"></div>
+    
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="seo-content">
+
+            <h2>Free Position Size Calculator with Target Price</h2>
+        
+            <p>
+                Our Position Size Calculator helps traders determine the exact number of shares or contracts
+                to buy based on account size, risk percentage, entry price, stop loss, and desired risk-reward ratio.
+                Proper position sizing is the foundation of professional trading and long-term capital protection.
+            </p>
+        
+            <p>
+                Unlike basic calculators, our tool not only calculates the correct position size,
+                but also provides a ready-to-use target price based on your selected reward multiple.
+                This allows you to enter trades with a complete risk management plan.
+            </p>
+        
+            <h3>Why Position Sizing Is Critical in Trading</h3>
+        
+            <p>
+                Many traders focus heavily on strategy but ignore risk management.
+                Without proper position sizing, even profitable systems can fail due to oversized losses.
+                Professional traders typically risk no more than <strong>0.5% to 1% of their total capital per trade</strong>.
+            </p>
+        
+            <p>
+                Limiting risk to 0.5–1% helps:
+            </p>
+        
+            <ul>
+                <li>Protect trading capital during losing streaks</li>
+                <li>Reduce emotional decision making</li>
+                <li>Maintain long-term consistency</li>
+                <li>Prevent large drawdowns</li>
+                <li>Improve psychological discipline</li>
+            </ul>
+        
+            <h3>How This Position Size Calculator Works</h3>
+        
+            <p>
+                The calculator uses the standard professional formula:
+            </p>
+        
+            <p><strong>Position Size = (Account Size × Risk %) ÷ (Entry − Stop Loss)</strong></p>
+        
+            <p>
+                After calculating the number of shares, it automatically computes your
+                target price using the selected risk-reward ratio.
+                This means you instantly know:
+            </p>
+        
+            <ul>
+                <li>Exact number of shares to buy</li>
+                <li>Total amount at risk</li>
+                <li>Target price based on R-multiple</li>
+                <li>Structured trade plan before entry</li>
+            </ul>
+        
+            <h3>Example</h3>
+        
+            <p>
+                If your account size is ₹10,000 and you risk 0.5% per trade,
+                your maximum risk is ₹50.
+                If you enter at ₹100 with a stop loss at ₹95,
+                your risk per share is ₹5.
+                The calculator will suggest buying 10 shares.
+                If you choose a 1:5 risk-reward ratio,
+                your target price will be ₹125.
+            </p>
+        
+            <h2>Benefits of Using Our Trading Position Size Calculator</h2>
+        
+            <ul>
+                <li>Instant and accurate calculation</li>
+                <li>No manual spreadsheet errors</li>
+                <li>Works for stocks, options, forex, crypto and F&O</li>
+                <li>Built-in risk-reward target calculation</li>
+                <li>Supports professional capital management principles</li>
+                <li>Completely free and privacy-focused</li>
+            </ul>
+        
+            <p>
+                Whether you are an intraday trader, swing trader, or long-term investor,
+                proper position sizing is essential for consistent profitability.
+                Risk management matters more than strategy selection.
+            </p>
+        
+            <h2>Frequently Asked Questions (FAQ)</h2>
+        
+            <div class="faq">
+    
+                <div class="faq-item">
+                    <h3>How much should I risk per trade?</h3>
+                    <p>
+                        Most professional traders risk between 0.5% and 1% of their total trading capital per trade.
+                        This protects capital during losing streaks and prevents emotional decision making.
+                    </p>
+                </div>
+        
+                <div class="faq-item">
+                    <h3>Does this calculator work for short selling?</h3>
+                    <p>
+                        Yes. The calculator automatically adjusts whether you are taking a long or short trade
+                        based on entry and stop loss values.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I use this for options and futures trading?</h3>
+                    <p>
+                        Yes. You can use it for stocks, options, futures, forex, and cryptocurrency trading.
+                        Simply input the correct entry and stop loss prices.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Why is position sizing more important than strategy?</h3>
+                    <p>
+                        Even a profitable strategy can fail if position size is too large.
+                        Risk management ensures survival during market volatility.
+                    </p>
+                </div>
+        
+        
+        
+            </div>
+        
+        </section>
+        
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 TradeMetricTools. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function calculatePosition() {
+    
+        const accountSize = parseFloat(document.getElementById("accountSize").value);
+        const riskPercent = parseFloat(document.getElementById("riskPercent").value);
+        const entryPrice = parseFloat(document.getElementById("entryPrice").value);
+        const stopLoss = parseFloat(document.getElementById("stopLoss").value);
+        const rewardMultiple = parseFloat(document.getElementById("rewardMultiple").value);
+    
+        if (!accountSize || !riskPercent || !entryPrice || !stopLoss || !rewardMultiple) {
+            document.getElementById("result").innerHTML = "Please fill all fields.";
+            return;
+        }
+    
+        const riskAmount = accountSize * (riskPercent / 100);
+        const riskPerUnit = Math.abs(entryPrice - stopLoss);
+    
+        if (riskPerUnit === 0) {
+            document.getElementById("result").innerHTML = "Entry and Stop Loss cannot be the same.";
+            return;
+        }
+    
+        const positionSize = Math.floor(riskAmount / riskPerUnit);
+    
+        const rewardPerUnit = riskPerUnit * rewardMultiple;
+        const targetPrice = entryPrice > stopLoss
+            ? entryPrice + rewardPerUnit
+            : entryPrice - rewardPerUnit;
+    
+        document.getElementById("result").innerHTML = `
+            <p><strong>Risk Amount:</strong> ${riskAmount.toFixed(2)}</p>
+            <p><strong>Position Size:</strong> ${positionSize} units ${(positionSize === 0) ? '-- Do not buy it.' : ''}</p>
+            <p><strong>Target Price (1:${rewardMultiple}):</strong> ${targetPrice.toFixed(2)}</p>
+        `;
+    }
+    </script>
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much should I risk per trade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most professional traders risk between 0.5% and 1% of their trading capital per trade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this calculator work for short selling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The calculator automatically adjusts based on entry and stop loss values."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for options and futures trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It works for stocks, options, futures, forex, and cryptocurrency trading."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    
+
+</body>
+</html>
